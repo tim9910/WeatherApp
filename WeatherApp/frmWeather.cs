@@ -21,6 +21,9 @@ namespace WeatherApp
     public partial class frmWeather : Form
     {
         ToolTip toolTip = null;
+        System.Windows.Forms.Label selectedHotLabel = null;
+        System.Windows.Forms.Label selectedFavorityLabel = null;
+        System.Windows.Forms.Label selectedSearchLabel = null;
         ///<summary>
         ///關於視窗
         ///</summary>
@@ -70,7 +73,7 @@ namespace WeatherApp
         private void initToolTip()
         {
             toolTip = new ToolTip();
-            toolTip.SetToolTip(btnQry, "查詢天氣");
+            toolTip.SetToolTip(cbBoxCity, "選擇縣市查詢天氣");
         }
 
         public void init()
@@ -159,7 +162,7 @@ namespace WeatherApp
 
         private void frmWeather_Load(object sender, EventArgs e)
         {
-            lbMarquee.Text = "📢 歡迎使用台灣天氣查詢系統，資料來源為中央氣象署 Open Data API。";
+            lbMarquee.Text = "                                     ";
             lbMarquee.Left = panelMarquee.Width;
             timerMarquee.Interval = 30;
             timerMarquee.Start();
@@ -792,73 +795,175 @@ namespace WeatherApp
             myFavorites.ShowDialog(this);
         }
 
+
         private void ShowHot()
         {
             ClickHistory hot = new ClickHistory();
-            lvHot.Items.Clear();
-            hot.TopHot().ForEach(c => {
-                ListViewItem item = new ListViewItem(c.City);
-                item.SubItems.Add(c.ClickCount.ToString());
-                lvHot.Items.Add(item);
-            });
 
-            //add event
-            lvHot.MouseClick += (sender, e) => {
-                if (lvHot.SelectedItems.Count > 0)
+            tlpHot.Controls.Clear();
+            tlpHot.RowStyles.Clear();
+            tlpHot.ColumnStyles.Clear();
+
+            var data = hot.TopHot(6).ToList();
+
+            // 2欄
+            tlpHot.ColumnCount = 2;
+            tlpHot.RowCount = 3;
+            tlpHot.AutoSize = true;
+            tlpHot.CellBorderStyle = TableLayoutPanelCellBorderStyle.None;
+
+            int index = 0;
+
+            for (int row = 0; row < 3; row++)
+            {
+                for (int col = 0; col < 2; col++)
                 {
-                    string city = lvHot.SelectedItems[0].Text;
-                    cbBoxCity.Text = city;
-                    btnQry.PerformClick();
+                    if (index >= data.Count) break;
+
+                    var city = data[index++].City;
+
+                    System.Windows.Forms.Label lbl = new System.Windows.Forms.Label();
+                    
+                    lbl.Text = city;
+                    lbl.AutoSize = true;
+                    lbl.Cursor = Cursors.Hand;
+                    lbl.Margin = new Padding(2);
+                    lbl.Font = new Font("微軟正黑體", 9);
+
+                    // click event
+                    lbl.Click += (s, e) =>
+                    {
+                        cbBoxCity.Text = city;
+                        btnQry.PerformClick();
+                    };
+                    lbl.MouseEnter += (s, e) =>
+                    {
+                        if (lbl != selectedHotLabel)
+                            lbl.BackColor = Color.LightPink;
+                    };
+
+                    lbl.MouseLeave += (s, e) =>
+                    {
+                        if (lbl != selectedHotLabel)
+                            lbl.BackColor = Color.Transparent;
+                    };
+                    tlpHot.Controls.Add(lbl, col, row);
                 }
-            };
+            }
         }
 
-        private void ShowRecent()
+
+        public void ShowRecent()
         {
             ClickHistory recent = new ClickHistory();
-            //clear
-            lvSearch.Items.Clear();
-            
-            recent.Recent().ForEach(c =>
-            {
-                ListViewItem item = new ListViewItem(c.City);
-                item.SubItems.Add(c.ModifyTime.ToString("yyyy/MM/dd HH:mm"));
-                lvSearch.Items.Add(item);
-            });
 
-            //add event
-            lvSearch.MouseClick += (sender, e) => {
-                if (lvSearch.SelectedItems.Count > 0)
+            tlpSearch.Controls.Clear();
+            tlpSearch.RowStyles.Clear();
+            tlpSearch.ColumnStyles.Clear();
+
+            var data = recent.Recent(6).ToList();
+
+            // 2欄
+            tlpSearch.ColumnCount = 2;
+            tlpSearch.RowCount = 3;
+            tlpSearch.AutoSize = true;
+            tlpSearch.CellBorderStyle = TableLayoutPanelCellBorderStyle.None;
+
+            int index = 0;
+
+            for (int row = 0; row < 3; row++)
+            {
+                for (int col = 0; col < 2; col++)
                 {
-                    string city = lvSearch.SelectedItems[0].Text;
-                    cbBoxCity.Text = city;
-                    btnQry.PerformClick();
+                    if (index >= data.Count) break;
+
+                    var city = data[index++].City;
+
+                    System.Windows.Forms.Label lbl = new System.Windows.Forms.Label();
+
+                    lbl.Text = city;
+                    lbl.AutoSize = true;
+                    lbl.Cursor = Cursors.Hand;
+                    lbl.Margin = new Padding(2);
+                    lbl.Font = new Font("微軟正黑體", 9);
+
+                    // click event
+                    lbl.Click += (s, e) =>
+                    {
+                        cbBoxCity.Text = city;
+                        btnQry.PerformClick();
+                    };
+                    lbl.MouseEnter += (s, e) =>
+                    {
+                        if (lbl != selectedSearchLabel)
+                            lbl.BackColor = Color.LightPink;
+                    };
+
+                    lbl.MouseLeave += (s, e) =>
+                    {
+                        if (lbl != selectedSearchLabel)
+                            lbl.BackColor = Color.Transparent;
+                    };
+                    tlpSearch.Controls.Add(lbl, col, row);
                 }
-            };
+            }
         }
 
         public void ShowFavorites()
         {
             Favorites favorites = new Favorites();
-            //clear
-            lvMyFavorites.Items.Clear();
-            foreach (var city in favorites.GetTop())
-            {
-                ListViewItem item = new ListViewItem(city);
-                lvMyFavorites.Items.Add(item);
-            }
 
-            //add event
-            lvMyFavorites.MouseClick += (sender, e) =>
+            tlpMyFavorites.Controls.Clear();
+            tlpMyFavorites.RowStyles.Clear();
+            tlpMyFavorites.ColumnStyles.Clear();
+
+            var data = favorites.GetTop(6).ToList();
+
+            // 2欄
+            tlpMyFavorites.ColumnCount = 2;
+            tlpMyFavorites.RowCount = 3;
+            tlpMyFavorites.AutoSize = true;
+            tlpMyFavorites.CellBorderStyle = TableLayoutPanelCellBorderStyle.None;
+
+            int index = 0;
+
+            for (int row = 0; row < 3; row++)
             {
-                if (lvMyFavorites.SelectedItems.Count > 0)
+                for (int col = 0; col < 2; col++)
                 {
-                    string city = lvMyFavorites.SelectedItems[0].Text;
-                    cbBoxCity.Text = city;
-                    btnQry.PerformClick();
+                    if (index >= data.Count) break;
+
+                    var city = data[index++];
+
+                    System.Windows.Forms.Label lbl = new System.Windows.Forms.Label();
+
+                    lbl.Text = city;
+                    lbl.AutoSize = true;
+                    lbl.Cursor = Cursors.Hand;
+                    lbl.Margin = new Padding(2);
+                    lbl.Font = new Font("微軟正黑體", 9);
+
+                    // click event
+                    lbl.Click += (s, e) =>
+                    {
+                        cbBoxCity.Text = city;
+                        btnQry.PerformClick();
+                    };
+                    lbl.MouseEnter += (s, e) =>
+                    {
+                        if (lbl != selectedFavorityLabel)
+                            lbl.BackColor = Color.LightPink;
+                    };
+
+                    lbl.MouseLeave += (s, e) =>
+                    {
+                        if (lbl != selectedFavorityLabel)
+                            lbl.BackColor = Color.Transparent;
+                    };
+                    tlpMyFavorites.Controls.Add(lbl, col, row);
                 }
-            };
-         }
+            }
+        }
 
 
         private void tsmiHistory_Click(object sender, EventArgs e)

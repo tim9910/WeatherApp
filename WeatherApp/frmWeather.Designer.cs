@@ -33,10 +33,13 @@
             this.grpQuery = new System.Windows.Forms.GroupBox();
             this.lblSunset = new System.Windows.Forms.Label();
             this.lblSunrise = new System.Windows.Forms.Label();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnQry = new System.Windows.Forms.Button();
             this.cbBoxCity = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.grpQryResult = new System.Windows.Forms.GroupBox();
+            this.picWeather = new System.Windows.Forms.PictureBox();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.grpSearch = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -55,19 +58,19 @@
             this.tsmiSet = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiMyFavorites = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.tsmiHistory = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.ExitMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiAbout = new System.Windows.Forms.ToolStripMenuItem();
-            this.lvMyFavorites = new System.Windows.Forms.ListView();
-            this.lvSearch = new System.Windows.Forms.ListView();
-            this.lvHot = new System.Windows.Forms.ListView();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.tsmiHistory = new System.Windows.Forms.ToolStripMenuItem();
-            this.picWeather = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.tlpHot = new System.Windows.Forms.TableLayoutPanel();
+            this.tlpMyFavorites = new System.Windows.Forms.TableLayoutPanel();
+            this.tlpSearch = new System.Windows.Forms.TableLayoutPanel();
             this.grpQuery.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.grpQryResult.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picWeather)).BeginInit();
             this.grpSearch.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.panelMarquee.SuspendLayout();
@@ -78,9 +81,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.grpHot.SuspendLayout();
             this.mnWeather.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picWeather)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // grpQuery
@@ -120,6 +120,26 @@
             this.lblSunrise.Size = new System.Drawing.Size(100, 26);
             this.lblSunrise.TabIndex = 5;
             this.lblSunrise.Text = "00:00:00";
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::WeatherApp.Properties.Resources.sunset1;
+            this.pictureBox2.Location = new System.Drawing.Point(739, 16);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(122, 58);
+            this.pictureBox2.TabIndex = 4;
+            this.pictureBox2.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::WeatherApp.Properties.Resources.sunrise1;
+            this.pictureBox1.Location = new System.Drawing.Point(571, 16);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(122, 58);
+            this.pictureBox1.TabIndex = 3;
+            this.pictureBox1.TabStop = false;
             // 
             // btnQry
             // 
@@ -173,6 +193,16 @@
             this.grpQryResult.TabIndex = 2;
             this.grpQryResult.TabStop = false;
             // 
+            // picWeather
+            // 
+            this.picWeather.BackColor = System.Drawing.Color.Transparent;
+            this.picWeather.Location = new System.Drawing.Point(614, 21);
+            this.picWeather.Margin = new System.Windows.Forms.Padding(2);
+            this.picWeather.Name = "picWeather";
+            this.picWeather.Size = new System.Drawing.Size(328, 226);
+            this.picWeather.TabIndex = 1;
+            this.picWeather.TabStop = false;
+            // 
             // flowLayoutPanel1
             // 
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 19);
@@ -184,7 +214,7 @@
             // grpSearch
             // 
             this.grpSearch.BackColor = System.Drawing.Color.MistyRose;
-            this.grpSearch.Controls.Add(this.lvSearch);
+            this.grpSearch.Controls.Add(this.tlpSearch);
             this.grpSearch.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.grpSearch.Location = new System.Drawing.Point(24, 654);
             this.grpSearch.Margin = new System.Windows.Forms.Padding(2);
@@ -198,9 +228,9 @@
             // groupBox2
             // 
             this.groupBox2.BackColor = System.Drawing.Color.FloralWhite;
-            this.groupBox2.Controls.Add(this.lvMyFavorites);
+            this.groupBox2.Controls.Add(this.tlpMyFavorites);
             this.groupBox2.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.groupBox2.Location = new System.Drawing.Point(325, 654);
+            this.groupBox2.Location = new System.Drawing.Point(337, 654);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(2);
@@ -306,13 +336,13 @@
             // grpHot
             // 
             this.grpHot.BackColor = System.Drawing.Color.Azure;
-            this.grpHot.Controls.Add(this.lvHot);
+            this.grpHot.Controls.Add(this.tlpHot);
             this.grpHot.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.grpHot.Location = new System.Drawing.Point(656, 654);
             this.grpHot.Margin = new System.Windows.Forms.Padding(2);
             this.grpHot.Name = "grpHot";
             this.grpHot.Padding = new System.Windows.Forms.Padding(2);
-            this.grpHot.Size = new System.Drawing.Size(276, 156);
+            this.grpHot.Size = new System.Drawing.Size(280, 156);
             this.grpHot.TabIndex = 6;
             this.grpHot.TabStop = false;
             this.grpHot.Text = "[ 熱門查詢 ]";
@@ -326,7 +356,7 @@
             this.helpToolMenu});
             this.mnWeather.Location = new System.Drawing.Point(0, 0);
             this.mnWeather.Name = "mnWeather";
-            this.mnWeather.Size = new System.Drawing.Size(951, 37);
+            this.mnWeather.Size = new System.Drawing.Size(951, 34);
             this.mnWeather.TabIndex = 10;
             this.mnWeather.Text = "menuStrip1";
             // 
@@ -339,7 +369,7 @@
             this.toolStripSeparator2,
             this.ExitMenuItem});
             this.FileMenu.Name = "FileMenu";
-            this.FileMenu.Size = new System.Drawing.Size(97, 33);
+            this.FileMenu.Size = new System.Drawing.Size(97, 30);
             this.FileMenu.Text = "檔案(&F)";
             // 
             // tsmiSet
@@ -347,7 +377,7 @@
             this.tsmiSet.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsmiMyFavorites});
             this.tsmiSet.Name = "tsmiSet";
-            this.tsmiSet.Size = new System.Drawing.Size(315, 40);
+            this.tsmiSet.Size = new System.Drawing.Size(199, 40);
             this.tsmiSet.Text = "設定(&S)";
             // 
             // tsmiMyFavorites
@@ -360,12 +390,24 @@
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(312, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(196, 6);
+            // 
+            // tsmiHistory
+            // 
+            this.tsmiHistory.Name = "tsmiHistory";
+            this.tsmiHistory.Size = new System.Drawing.Size(199, 40);
+            this.tsmiHistory.Text = "檢視(&V)";
+            this.tsmiHistory.Click += new System.EventHandler(this.tsmiHistory_Click);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(196, 6);
             // 
             // ExitMenuItem
             // 
             this.ExitMenuItem.Name = "ExitMenuItem";
-            this.ExitMenuItem.Size = new System.Drawing.Size(315, 40);
+            this.ExitMenuItem.Size = new System.Drawing.Size(199, 40);
             this.ExitMenuItem.Text = "離開(&X)";
             this.ExitMenuItem.Click += new System.EventHandler(this.ExitMenuItem_Click);
             // 
@@ -374,7 +416,7 @@
             this.helpToolMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsmiAbout});
             this.helpToolMenu.Name = "helpToolMenu";
-            this.helpToolMenu.Size = new System.Drawing.Size(102, 33);
+            this.helpToolMenu.Size = new System.Drawing.Size(102, 30);
             this.helpToolMenu.Text = "幫助(&H)";
             // 
             // tsmiAbout
@@ -384,86 +426,44 @@
             this.tsmiAbout.Text = "關於(&A)";
             this.tsmiAbout.Click += new System.EventHandler(this.tsmiAbout_Click);
             // 
-            // lvMyFavorites
+            // tlpHot
             // 
-            this.lvMyFavorites.BackColor = System.Drawing.Color.FloralWhite;
-            this.lvMyFavorites.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.lvMyFavorites.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.lvMyFavorites.HideSelection = false;
-            this.lvMyFavorites.Location = new System.Drawing.Point(25, 33);
-            this.lvMyFavorites.Name = "lvMyFavorites";
-            this.lvMyFavorites.Size = new System.Drawing.Size(176, 118);
-            this.lvMyFavorites.TabIndex = 0;
-            this.lvMyFavorites.UseCompatibleStateImageBehavior = false;
-            this.lvMyFavorites.View = System.Windows.Forms.View.SmallIcon;
+            this.tlpHot.ColumnCount = 2;
+            this.tlpHot.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tlpHot.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tlpHot.Location = new System.Drawing.Point(16, 33);
+            this.tlpHot.Name = "tlpHot";
+            this.tlpHot.RowCount = 2;
+            this.tlpHot.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tlpHot.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tlpHot.Size = new System.Drawing.Size(239, 118);
+            this.tlpHot.TabIndex = 0;
             // 
-            // lvSearch
+            // tlpMyFavorites
             // 
-            this.lvSearch.BackColor = System.Drawing.Color.MistyRose;
-            this.lvSearch.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.lvSearch.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.lvSearch.HideSelection = false;
-            this.lvSearch.Location = new System.Drawing.Point(15, 33);
-            this.lvSearch.Name = "lvSearch";
-            this.lvSearch.Size = new System.Drawing.Size(176, 118);
-            this.lvSearch.TabIndex = 1;
-            this.lvSearch.UseCompatibleStateImageBehavior = false;
-            this.lvSearch.View = System.Windows.Forms.View.SmallIcon;
+            this.tlpMyFavorites.ColumnCount = 2;
+            this.tlpMyFavorites.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tlpMyFavorites.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tlpMyFavorites.Location = new System.Drawing.Point(28, 33);
+            this.tlpMyFavorites.Name = "tlpMyFavorites";
+            this.tlpMyFavorites.RowCount = 2;
+            this.tlpMyFavorites.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tlpMyFavorites.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tlpMyFavorites.Size = new System.Drawing.Size(200, 111);
+            this.tlpMyFavorites.TabIndex = 0;
             // 
-            // lvHot
+            // tlpSearch
             // 
-            this.lvHot.BackColor = System.Drawing.Color.Azure;
-            this.lvHot.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.lvHot.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.lvHot.HideSelection = false;
-            this.lvHot.Location = new System.Drawing.Point(19, 32);
-            this.lvHot.Name = "lvHot";
-            this.lvHot.Size = new System.Drawing.Size(176, 118);
-            this.lvHot.TabIndex = 1;
-            this.lvHot.UseCompatibleStateImageBehavior = false;
-            this.lvHot.View = System.Windows.Forms.View.SmallIcon;
-            // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(312, 6);
-            // 
-            // tsmiHistory
-            // 
-            this.tsmiHistory.Name = "tsmiHistory";
-            this.tsmiHistory.Size = new System.Drawing.Size(315, 40);
-            this.tsmiHistory.Text = "檢視(&V)";
-            this.tsmiHistory.Click += new System.EventHandler(this.tsmiHistory_Click);
-            // 
-            // picWeather
-            // 
-            this.picWeather.BackColor = System.Drawing.Color.Transparent;
-            this.picWeather.Location = new System.Drawing.Point(614, 21);
-            this.picWeather.Margin = new System.Windows.Forms.Padding(2);
-            this.picWeather.Name = "picWeather";
-            this.picWeather.Size = new System.Drawing.Size(328, 226);
-            this.picWeather.TabIndex = 1;
-            this.picWeather.TabStop = false;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = global::WeatherApp.Properties.Resources.sunset1;
-            this.pictureBox2.Location = new System.Drawing.Point(739, 16);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(122, 58);
-            this.pictureBox2.TabIndex = 4;
-            this.pictureBox2.TabStop = false;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::WeatherApp.Properties.Resources.sunrise1;
-            this.pictureBox1.Location = new System.Drawing.Point(571, 16);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(122, 58);
-            this.pictureBox1.TabIndex = 3;
-            this.pictureBox1.TabStop = false;
+            this.tlpSearch.ColumnCount = 2;
+            this.tlpSearch.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tlpSearch.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tlpSearch.Location = new System.Drawing.Point(14, 33);
+            this.tlpSearch.Name = "tlpSearch";
+            this.tlpSearch.RowCount = 2;
+            this.tlpSearch.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tlpSearch.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tlpSearch.Size = new System.Drawing.Size(214, 113);
+            this.tlpSearch.TabIndex = 0;
             // 
             // frmWeather
             // 
@@ -490,7 +490,10 @@
             this.Load += new System.EventHandler(this.frmWeather_Load);
             this.grpQuery.ResumeLayout(false);
             this.grpQuery.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.grpQryResult.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.picWeather)).EndInit();
             this.grpSearch.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.panelMarquee.ResumeLayout(false);
@@ -503,9 +506,6 @@
             this.grpHot.ResumeLayout(false);
             this.mnWeather.ResumeLayout(false);
             this.mnWeather.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picWeather)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -543,11 +543,11 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem ExitMenuItem;
         private System.Windows.Forms.ToolStripMenuItem tsmiMyFavorites;
-        private System.Windows.Forms.ListView lvMyFavorites;
-        private System.Windows.Forms.ListView lvSearch;
-        private System.Windows.Forms.ListView lvHot;
         private System.Windows.Forms.ToolStripMenuItem tsmiHistory;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.TableLayoutPanel tlpHot;
+        private System.Windows.Forms.TableLayoutPanel tlpMyFavorites;
+        private System.Windows.Forms.TableLayoutPanel tlpSearch;
     }
 }
 
