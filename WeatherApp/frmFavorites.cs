@@ -60,6 +60,12 @@ namespace WeatherApp
 
         private void lvAvailable_Click(object sender, EventArgs e)
         {
+            //最多只能加入六個最愛
+            if (favorites.GetAll().Count >= 6)
+            {
+                MessageBox.Show("最多只能加入六個最愛！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
             if (lvAvailable.SelectedItems.Count > 0)
             {
                 string city = lvAvailable.SelectedItems[0].Text;

@@ -43,7 +43,7 @@ namespace WeatherApp
             return new List<string>(favoriteCities);
         }
 
-        // 取得收藏清單的前4筆資料
+        // 取得收藏清單的前top筆資料
         public List<string> GetTop(int top = 3)
         {
             return favoriteCities.Take(top).ToList();
