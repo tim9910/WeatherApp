@@ -753,7 +753,7 @@ namespace WeatherApp
                 string json = File.ReadAllText(fullPath);
                 DateTime lastWriteTime = File.GetLastWriteTime(fullPath);
 
-                lbMsg.Text = "資料來源：中央氣象署 Open Data API | 最後更新：" + lastWriteTime.ToString("yyyy/MM/dd HH:mm") + " | 狀態：查詢 Cache";
+                lbMsg.Text = "資料來源：中央氣象署 Open Data API | 最後更新：" + lastWriteTime.ToString("yyyy/MM/dd HH:mm") + " | 狀態：快取";
                 return json;
             }
         }
