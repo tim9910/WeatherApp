@@ -86,10 +86,21 @@ namespace WeatherApp
 
         private void frmFavorites_FormClosing(object sender, FormClosingEventArgs e)
         {
-            //refresh 主視窗的最愛列表
-            if (this.Owner is frmWeather mainForm)
+            var result = MessageBox.Show("確定要關閉視窗嗎？", "關閉確認",
+                MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (result == DialogResult.No)
             {
-                mainForm.ShowFavorites();
+                e.Cancel = true; // 取消關閉
+            }
+            else
+            {
+                //refresh 主視窗的最愛列表
+                if (this.Owner is frmWeather mainForm)
+                {
+                    mainForm.ShowFavorites();
+                }
+
             }
 
         }

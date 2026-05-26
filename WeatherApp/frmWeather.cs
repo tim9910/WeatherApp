@@ -106,6 +106,10 @@ namespace WeatherApp
             toolTip = new ToolTip();
             toolTip.SetToolTip(cbBoxCity, "選擇縣市查詢天氣");
             toolTip.SetToolTip(picWeather, "溫度分佈圖");
+            toolTip.SetToolTip(pictureBox1, "日出時間");
+            toolTip.SetToolTip(pictureBox2, "日落時間");
+            toolTip.SetToolTip(dataGridView1, "今明36小時天氣預報");
+            toolTip.SetToolTip(dataGridView2, "未來一週天氣預報");
         }
 
         public void init()

@@ -174,5 +174,16 @@ namespace WeatherApp
                 lvwResult.Invalidate();
             }
         }
+
+        private void frmView_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            var result = MessageBox.Show("確定要關閉視窗嗎？", "關閉確認",
+                MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (result == DialogResult.No)
+            {
+                e.Cancel = true; // 取消關閉
+            }
+        }
     }
 }

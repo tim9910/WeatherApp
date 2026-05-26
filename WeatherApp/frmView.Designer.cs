@@ -78,6 +78,7 @@
             this.Name = "frmView";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "檢視歷史";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmView_FormClosing);
             this.Load += new System.EventHandler(this.frmView_Load);
             this.ResumeLayout(false);
 
