@@ -97,7 +97,7 @@
             this.grpQuery.Margin = new System.Windows.Forms.Padding(2);
             this.grpQuery.Name = "grpQuery";
             this.grpQuery.Padding = new System.Windows.Forms.Padding(2);
-            this.grpQuery.Size = new System.Drawing.Size(610, 96);
+            this.grpQuery.Size = new System.Drawing.Size(580, 96);
             this.grpQuery.TabIndex = 1;
             this.grpQuery.TabStop = false;
             // 
@@ -195,19 +195,19 @@
             // picWeather
             // 
             this.picWeather.BackColor = System.Drawing.Color.Transparent;
-            this.picWeather.Location = new System.Drawing.Point(618, 92);
+            this.picWeather.Location = new System.Drawing.Point(588, 92);
             this.picWeather.Margin = new System.Windows.Forms.Padding(2);
             this.picWeather.Name = "picWeather";
-            this.picWeather.Size = new System.Drawing.Size(333, 349);
+            this.picWeather.Size = new System.Drawing.Size(363, 349);
             this.picWeather.TabIndex = 1;
             this.picWeather.TabStop = false;
             // 
             // flowLayoutPanel1
             // 
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 19);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(-1, 2);
             this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(4);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(607, 232);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(577, 249);
             this.flowLayoutPanel1.TabIndex = 2;
             // 
             // grpSearch
@@ -367,7 +367,7 @@
             this.grpHot.Margin = new System.Windows.Forms.Padding(2);
             this.grpHot.Name = "grpHot";
             this.grpHot.Padding = new System.Windows.Forms.Padding(2);
-            this.grpHot.Size = new System.Drawing.Size(280, 156);
+            this.grpHot.Size = new System.Drawing.Size(267, 156);
             this.grpHot.TabIndex = 6;
             this.grpHot.TabStop = false;
             this.grpHot.Text = "[ 熱門查詢 ]";
@@ -377,12 +377,12 @@
             this.tlpHot.ColumnCount = 2;
             this.tlpHot.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tlpHot.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tlpHot.Location = new System.Drawing.Point(16, 33);
+            this.tlpHot.Location = new System.Drawing.Point(28, 33);
             this.tlpHot.Name = "tlpHot";
             this.tlpHot.RowCount = 2;
             this.tlpHot.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tlpHot.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tlpHot.Size = new System.Drawing.Size(239, 118);
+            this.tlpHot.Size = new System.Drawing.Size(226, 118);
             this.tlpHot.TabIndex = 0;
             // 
             // mnWeather

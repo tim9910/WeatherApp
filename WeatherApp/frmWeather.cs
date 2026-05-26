@@ -68,6 +68,37 @@ namespace WeatherApp
             //disbled 視窗的調整大小功能，讓使用者無法改變視窗大小
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
             //LoadWeather(cbBoxCity.Text.Trim());
+
+            tabControl1.DrawMode = TabDrawMode.OwnerDrawFixed;
+            tabControl1.DrawItem += TabControl1_DrawItem;
+        }
+
+        private void TabControl1_DrawItem(object sender, DrawItemEventArgs e)
+        {
+            Graphics g = e.Graphics;
+            TabPage tabPage = tabControl1.TabPages[e.Index];
+            Rectangle tabRect = tabControl1.GetTabRect(e.Index);
+
+            // 判斷是否為目前選取頁籤
+            bool isSelected = (e.Index == tabControl1.SelectedIndex);
+
+            // 設定顏色
+            Color backColor = isSelected ? Color.Orange : Color.LightGray;
+            Color textColor = Color.Black;
+
+            using (SolidBrush brush = new SolidBrush(backColor))
+            {
+                g.FillRectangle(brush, tabRect);
+            }
+
+            TextRenderer.DrawText(
+                g,
+                tabPage.Text,
+                tabControl1.Font,
+                tabRect,
+                textColor,
+                TextFormatFlags.HorizontalCenter | TextFormatFlags.VerticalCenter
+            );
         }
 
         private void initToolTip()
