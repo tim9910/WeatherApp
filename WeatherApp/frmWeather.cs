@@ -74,6 +74,7 @@ namespace WeatherApp
         {
             toolTip = new ToolTip();
             toolTip.SetToolTip(cbBoxCity, "選擇縣市查詢天氣");
+            toolTip.SetToolTip(picWeather, "溫度分佈圖");
         }
 
         public void init()
@@ -463,7 +464,7 @@ namespace WeatherApp
                                 - SystemInformation.VerticalScrollBarWidth
                                 - 10;
 
-                    lbl.Height = 25;
+                    lbl.Height = 20;
 
                     lbl.AutoEllipsis = true;
 

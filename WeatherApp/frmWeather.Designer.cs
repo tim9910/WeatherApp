@@ -42,7 +42,9 @@
             this.picWeather = new System.Windows.Forms.PictureBox();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.grpSearch = new System.Windows.Forms.GroupBox();
+            this.tlpSearch = new System.Windows.Forms.TableLayoutPanel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.tlpMyFavorites = new System.Windows.Forms.TableLayoutPanel();
             this.panelMarquee = new System.Windows.Forms.Panel();
             this.lbMarquee = new System.Windows.Forms.Label();
             this.timerMarquee = new System.Windows.Forms.Timer(this.components);
@@ -53,6 +55,7 @@
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.lbMsg = new System.Windows.Forms.Label();
             this.grpHot = new System.Windows.Forms.GroupBox();
+            this.tlpHot = new System.Windows.Forms.TableLayoutPanel();
             this.mnWeather = new System.Windows.Forms.MenuStrip();
             this.FileMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiSet = new System.Windows.Forms.ToolStripMenuItem();
@@ -63,9 +66,6 @@
             this.ExitMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiAbout = new System.Windows.Forms.ToolStripMenuItem();
-            this.tlpHot = new System.Windows.Forms.TableLayoutPanel();
-            this.tlpMyFavorites = new System.Windows.Forms.TableLayoutPanel();
-            this.tlpSearch = new System.Windows.Forms.TableLayoutPanel();
             this.grpQuery.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -97,14 +97,14 @@
             this.grpQuery.Margin = new System.Windows.Forms.Padding(2);
             this.grpQuery.Name = "grpQuery";
             this.grpQuery.Padding = new System.Windows.Forms.Padding(2);
-            this.grpQuery.Size = new System.Drawing.Size(948, 96);
+            this.grpQuery.Size = new System.Drawing.Size(610, 96);
             this.grpQuery.TabIndex = 1;
             this.grpQuery.TabStop = false;
             // 
             // lblSunset
             // 
             this.lblSunset.AutoSize = true;
-            this.lblSunset.Location = new System.Drawing.Point(735, 66);
+            this.lblSunset.Location = new System.Drawing.Point(458, 63);
             this.lblSunset.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblSunset.Name = "lblSunset";
             this.lblSunset.Size = new System.Drawing.Size(100, 26);
@@ -114,7 +114,7 @@
             // lblSunrise
             // 
             this.lblSunrise.AutoSize = true;
-            this.lblSunrise.Location = new System.Drawing.Point(566, 69);
+            this.lblSunrise.Location = new System.Drawing.Point(352, 67);
             this.lblSunrise.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblSunrise.Name = "lblSunrise";
             this.lblSunrise.Size = new System.Drawing.Size(100, 26);
@@ -124,20 +124,20 @@
             // pictureBox2
             // 
             this.pictureBox2.Image = global::WeatherApp.Properties.Resources.sunset1;
-            this.pictureBox2.Location = new System.Drawing.Point(739, 16);
+            this.pictureBox2.Location = new System.Drawing.Point(462, 16);
             this.pictureBox2.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(122, 58);
+            this.pictureBox2.Size = new System.Drawing.Size(96, 58);
             this.pictureBox2.TabIndex = 4;
             this.pictureBox2.TabStop = false;
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::WeatherApp.Properties.Resources.sunrise1;
-            this.pictureBox1.Location = new System.Drawing.Point(571, 16);
+            this.pictureBox1.Location = new System.Drawing.Point(357, 17);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(122, 58);
+            this.pictureBox1.Size = new System.Drawing.Size(83, 58);
             this.pictureBox1.TabIndex = 3;
             this.pictureBox1.TabStop = false;
             // 
@@ -148,10 +148,10 @@
             this.btnQry.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.Control;
             this.btnQry.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.Control;
             this.btnQry.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnQry.Location = new System.Drawing.Point(342, 16);
+            this.btnQry.Location = new System.Drawing.Point(284, 21);
             this.btnQry.Margin = new System.Windows.Forms.Padding(2);
             this.btnQry.Name = "btnQry";
-            this.btnQry.Size = new System.Drawing.Size(99, 77);
+            this.btnQry.Size = new System.Drawing.Size(63, 46);
             this.btnQry.TabIndex = 2;
             this.btnQry.Text = "查詢";
             this.btnQry.UseVisualStyleBackColor = true;
@@ -164,7 +164,7 @@
             this.cbBoxCity.Location = new System.Drawing.Point(130, 28);
             this.cbBoxCity.Margin = new System.Windows.Forms.Padding(2);
             this.cbBoxCity.Name = "cbBoxCity";
-            this.cbBoxCity.Size = new System.Drawing.Size(206, 34);
+            this.cbBoxCity.Size = new System.Drawing.Size(150, 34);
             this.cbBoxCity.TabIndex = 1;
             this.cbBoxCity.SelectedIndexChanged += new System.EventHandler(this.btnQry_Click);
             // 
@@ -181,7 +181,6 @@
             // 
             // grpQryResult
             // 
-            this.grpQryResult.Controls.Add(this.picWeather);
             this.grpQryResult.Controls.Add(this.flowLayoutPanel1);
             this.grpQryResult.Font = new System.Drawing.Font("微軟正黑體", 10.125F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.grpQryResult.ImeMode = System.Windows.Forms.ImeMode.Off;
@@ -189,17 +188,17 @@
             this.grpQryResult.Margin = new System.Windows.Forms.Padding(2);
             this.grpQryResult.Name = "grpQryResult";
             this.grpQryResult.Padding = new System.Windows.Forms.Padding(2);
-            this.grpQryResult.Size = new System.Drawing.Size(951, 252);
+            this.grpQryResult.Size = new System.Drawing.Size(607, 252);
             this.grpQryResult.TabIndex = 2;
             this.grpQryResult.TabStop = false;
             // 
             // picWeather
             // 
             this.picWeather.BackColor = System.Drawing.Color.Transparent;
-            this.picWeather.Location = new System.Drawing.Point(614, 21);
+            this.picWeather.Location = new System.Drawing.Point(618, 92);
             this.picWeather.Margin = new System.Windows.Forms.Padding(2);
             this.picWeather.Name = "picWeather";
-            this.picWeather.Size = new System.Drawing.Size(328, 226);
+            this.picWeather.Size = new System.Drawing.Size(333, 349);
             this.picWeather.TabIndex = 1;
             this.picWeather.TabStop = false;
             // 
@@ -225,6 +224,19 @@
             this.grpSearch.TabStop = false;
             this.grpSearch.Text = "[ 搜尋紀錄 ]";
             // 
+            // tlpSearch
+            // 
+            this.tlpSearch.ColumnCount = 2;
+            this.tlpSearch.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tlpSearch.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tlpSearch.Location = new System.Drawing.Point(14, 33);
+            this.tlpSearch.Name = "tlpSearch";
+            this.tlpSearch.RowCount = 2;
+            this.tlpSearch.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tlpSearch.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tlpSearch.Size = new System.Drawing.Size(214, 113);
+            this.tlpSearch.TabIndex = 0;
+            // 
             // groupBox2
             // 
             this.groupBox2.BackColor = System.Drawing.Color.FloralWhite;
@@ -238,6 +250,19 @@
             this.groupBox2.TabIndex = 5;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "[ 我的最愛 ]";
+            // 
+            // tlpMyFavorites
+            // 
+            this.tlpMyFavorites.ColumnCount = 2;
+            this.tlpMyFavorites.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tlpMyFavorites.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tlpMyFavorites.Location = new System.Drawing.Point(28, 33);
+            this.tlpMyFavorites.Name = "tlpMyFavorites";
+            this.tlpMyFavorites.RowCount = 2;
+            this.tlpMyFavorites.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tlpMyFavorites.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tlpMyFavorites.Size = new System.Drawing.Size(200, 111);
+            this.tlpMyFavorites.TabIndex = 0;
             // 
             // panelMarquee
             // 
@@ -347,6 +372,19 @@
             this.grpHot.TabStop = false;
             this.grpHot.Text = "[ 熱門查詢 ]";
             // 
+            // tlpHot
+            // 
+            this.tlpHot.ColumnCount = 2;
+            this.tlpHot.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tlpHot.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tlpHot.Location = new System.Drawing.Point(16, 33);
+            this.tlpHot.Name = "tlpHot";
+            this.tlpHot.RowCount = 2;
+            this.tlpHot.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tlpHot.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tlpHot.Size = new System.Drawing.Size(239, 118);
+            this.tlpHot.TabIndex = 0;
+            // 
             // mnWeather
             // 
             this.mnWeather.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
@@ -426,51 +464,13 @@
             this.tsmiAbout.Text = "關於(&A)";
             this.tsmiAbout.Click += new System.EventHandler(this.tsmiAbout_Click);
             // 
-            // tlpHot
-            // 
-            this.tlpHot.ColumnCount = 2;
-            this.tlpHot.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tlpHot.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tlpHot.Location = new System.Drawing.Point(16, 33);
-            this.tlpHot.Name = "tlpHot";
-            this.tlpHot.RowCount = 2;
-            this.tlpHot.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tlpHot.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tlpHot.Size = new System.Drawing.Size(239, 118);
-            this.tlpHot.TabIndex = 0;
-            // 
-            // tlpMyFavorites
-            // 
-            this.tlpMyFavorites.ColumnCount = 2;
-            this.tlpMyFavorites.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tlpMyFavorites.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tlpMyFavorites.Location = new System.Drawing.Point(28, 33);
-            this.tlpMyFavorites.Name = "tlpMyFavorites";
-            this.tlpMyFavorites.RowCount = 2;
-            this.tlpMyFavorites.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tlpMyFavorites.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tlpMyFavorites.Size = new System.Drawing.Size(200, 111);
-            this.tlpMyFavorites.TabIndex = 0;
-            // 
-            // tlpSearch
-            // 
-            this.tlpSearch.ColumnCount = 2;
-            this.tlpSearch.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tlpSearch.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tlpSearch.Location = new System.Drawing.Point(14, 33);
-            this.tlpSearch.Name = "tlpSearch";
-            this.tlpSearch.RowCount = 2;
-            this.tlpSearch.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tlpSearch.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tlpSearch.Size = new System.Drawing.Size(214, 113);
-            this.tlpSearch.TabIndex = 0;
-            // 
             // frmWeather
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(951, 883);
+            this.Controls.Add(this.picWeather);
             this.Controls.Add(this.grpHot);
             this.Controls.Add(this.lbMsg);
             this.Controls.Add(this.tabControl1);
