@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Drawing2D;
@@ -25,10 +26,16 @@ namespace WeatherApp
         System.Windows.Forms.Label selectedFavorityLabel = null;
         System.Windows.Forms.Label selectedSearchLabel = null;
         ///<summary>
+        ///連接資料庫的物件
+        ///</summary>
+        SqlConnection sqlDb = null;
+
+        ///<summary>
         ///關於視窗
         ///</summary>
         frmAbout about = new frmAbout();
         frmView view = new frmView();
+        frmApilog apilog = new frmApilog();
         public static readonly Dictionary<string, string> CityCodeMap = new Dictionary<string, string>
             {
                     {"宜蘭縣", "F-C0032-013"},
@@ -55,9 +62,24 @@ namespace WeatherApp
                     {"屏東縣", "F-C0032-025"}
             };
 
+        private void initDB()
+        {
+            string cntStr = @"Data Source=(localDB)\MSSQLLocalDB;" + @"AttachDBFilename=|DataDirectory|db.mdf;";
+            try
+            {
+                sqlDb = new SqlConnection(cntStr);
+                sqlDb.Open();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
         public frmWeather()
         {
             InitializeComponent();
+            initDB();
             InitFile(); // 初始化檔案
             init();
             initToolTip();
@@ -71,6 +93,7 @@ namespace WeatherApp
 
             tabControl1.DrawMode = TabDrawMode.OwnerDrawFixed;
             tabControl1.DrawItem += TabControl1_DrawItem;
+            
         }
 
         private void TabControl1_DrawItem(object sender, DrawItemEventArgs e)
@@ -765,17 +788,39 @@ namespace WeatherApp
             {
                 e.Cancel = true; // 取消關閉
             }
+            else
+            {
+                if (sqlDb != null && sqlDb.State == ConnectionState.Open)
+                {
+                    sqlDb.Close();
+                }
+            }
         }
 
         private async Task<string> GetWeatherJsonAsync(string url, string city, string type)
         {
             // 先從API取得資料，若失敗則讀取Cache檔案
+            HttpResponseMessage response = null;
             try
             {
                 using (HttpClient client = new HttpClient())
                 {
-                    string json = await client.GetStringAsync(url);
+                    //string json = await client.GetStringAsync(url);
+                    // 發送 GET 請求
+                    response = await client.GetAsync(url);
+
+                    // 狀態碼
+                    int statusCode = (int)response.StatusCode;
+
+                    // 是否成功 (200~299)
+                    bool success = response.IsSuccessStatusCode;
+
+                    // 取得回應內容
+                    string json = await response.Content.ReadAsStringAsync();
+
                     lbMsg.Text = "資料來源：中央氣象署 Open Data API | 最後更新：" + DateTime.Now.ToString("yyyy/MM/dd HH:mm") + " | 狀態：查詢成功";
+                    APIlog apilog = new APIlog(sqlDb);
+                    apilog.InsertLog(type, url, city, statusCode, success ? "T" : "F", "");
                     return json;
                 }
             }
@@ -793,6 +838,19 @@ namespace WeatherApp
                 DateTime lastWriteTime = File.GetLastWriteTime(fullPath);
 
                 lbMsg.Text = "資料來源：中央氣象署 Open Data API | 最後更新：" + lastWriteTime.ToString("yyyy/MM/dd HH:mm") + " | 狀態：快取";
+                // 狀態碼
+                int statusCode = 404;
+                // 是否成功 (200~299)
+                bool success = false;
+                if (response != null)
+                {
+                    statusCode = (int)response.StatusCode;
+                    success = response.IsSuccessStatusCode;
+                }
+
+
+                APIlog apilog = new APIlog(sqlDb);
+                apilog.InsertLog(type, url, city, statusCode, success ? "T" : "F", ex.Message);
                 return json;
             }
         }
@@ -1002,9 +1060,15 @@ namespace WeatherApp
         }
 
 
-        private void tsmiHistory_Click(object sender, EventArgs e)
+        private void 搜尋紀錄ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             view.ShowDialog(this);
+        }
+
+        private void tsmlAPI_Click(object sender, EventArgs e)
+        {
+            // 顯示API使用說明視窗
+            apilog.ShowDialog(this);
         }
     }
 }

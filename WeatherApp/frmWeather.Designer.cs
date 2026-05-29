@@ -39,8 +39,8 @@
             this.cbBoxCity = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.grpQryResult = new System.Windows.Forms.GroupBox();
-            this.picWeather = new System.Windows.Forms.PictureBox();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.picWeather = new System.Windows.Forms.PictureBox();
             this.grpSearch = new System.Windows.Forms.GroupBox();
             this.tlpSearch = new System.Windows.Forms.TableLayoutPanel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -62,6 +62,9 @@
             this.tsmiMyFavorites = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.tsmiHistory = new System.Windows.Forms.ToolStripMenuItem();
+            this.搜尋紀錄ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.tsmlAPI = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.ExitMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolMenu = new System.Windows.Forms.ToolStripMenuItem();
@@ -192,6 +195,14 @@
             this.grpQryResult.TabIndex = 2;
             this.grpQryResult.TabStop = false;
             // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(-1, 2);
+            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(4);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(577, 249);
+            this.flowLayoutPanel1.TabIndex = 2;
+            // 
             // picWeather
             // 
             this.picWeather.BackColor = System.Drawing.Color.Transparent;
@@ -201,14 +212,6 @@
             this.picWeather.Size = new System.Drawing.Size(363, 349);
             this.picWeather.TabIndex = 1;
             this.picWeather.TabStop = false;
-            // 
-            // flowLayoutPanel1
-            // 
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(-1, 2);
-            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(4);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(577, 249);
-            this.flowLayoutPanel1.TabIndex = 2;
             // 
             // grpSearch
             // 
@@ -394,7 +397,7 @@
             this.helpToolMenu});
             this.mnWeather.Location = new System.Drawing.Point(0, 0);
             this.mnWeather.Name = "mnWeather";
-            this.mnWeather.Size = new System.Drawing.Size(951, 34);
+            this.mnWeather.Size = new System.Drawing.Size(951, 37);
             this.mnWeather.TabIndex = 10;
             this.mnWeather.Text = "menuStrip1";
             // 
@@ -407,7 +410,7 @@
             this.toolStripSeparator2,
             this.ExitMenuItem});
             this.FileMenu.Name = "FileMenu";
-            this.FileMenu.Size = new System.Drawing.Size(97, 30);
+            this.FileMenu.Size = new System.Drawing.Size(97, 33);
             this.FileMenu.Text = "檔案(&F)";
             // 
             // tsmiSet
@@ -415,7 +418,7 @@
             this.tsmiSet.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsmiMyFavorites});
             this.tsmiSet.Name = "tsmiSet";
-            this.tsmiSet.Size = new System.Drawing.Size(199, 40);
+            this.tsmiSet.Size = new System.Drawing.Size(315, 40);
             this.tsmiSet.Text = "設定(&S)";
             // 
             // tsmiMyFavorites
@@ -428,24 +431,46 @@
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(196, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(312, 6);
             // 
             // tsmiHistory
             // 
+            this.tsmiHistory.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.搜尋紀錄ToolStripMenuItem,
+            this.toolStripSeparator3,
+            this.tsmlAPI});
             this.tsmiHistory.Name = "tsmiHistory";
-            this.tsmiHistory.Size = new System.Drawing.Size(199, 40);
+            this.tsmiHistory.Size = new System.Drawing.Size(315, 40);
             this.tsmiHistory.Text = "檢視(&V)";
-            this.tsmiHistory.Click += new System.EventHandler(this.tsmiHistory_Click);
+            // 
+            // 搜尋紀錄ToolStripMenuItem
+            // 
+            this.搜尋紀錄ToolStripMenuItem.Name = "搜尋紀錄ToolStripMenuItem";
+            this.搜尋紀錄ToolStripMenuItem.Size = new System.Drawing.Size(315, 40);
+            this.搜尋紀錄ToolStripMenuItem.Text = "搜尋紀錄(&L)";
+            this.搜尋紀錄ToolStripMenuItem.Click += new System.EventHandler(this.搜尋紀錄ToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(312, 6);
+            // 
+            // tsmlAPI
+            // 
+            this.tsmlAPI.Name = "tsmlAPI";
+            this.tsmlAPI.Size = new System.Drawing.Size(315, 40);
+            this.tsmlAPI.Text = "API 紀錄(&I)";
+            this.tsmlAPI.Click += new System.EventHandler(this.tsmlAPI_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(196, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(312, 6);
             // 
             // ExitMenuItem
             // 
             this.ExitMenuItem.Name = "ExitMenuItem";
-            this.ExitMenuItem.Size = new System.Drawing.Size(199, 40);
+            this.ExitMenuItem.Size = new System.Drawing.Size(315, 40);
             this.ExitMenuItem.Text = "離開(&X)";
             this.ExitMenuItem.Click += new System.EventHandler(this.ExitMenuItem_Click);
             // 
@@ -454,7 +479,7 @@
             this.helpToolMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsmiAbout});
             this.helpToolMenu.Name = "helpToolMenu";
-            this.helpToolMenu.Size = new System.Drawing.Size(102, 30);
+            this.helpToolMenu.Size = new System.Drawing.Size(102, 33);
             this.helpToolMenu.Text = "幫助(&H)";
             // 
             // tsmiAbout
@@ -548,6 +573,9 @@
         private System.Windows.Forms.TableLayoutPanel tlpHot;
         private System.Windows.Forms.TableLayoutPanel tlpMyFavorites;
         private System.Windows.Forms.TableLayoutPanel tlpSearch;
+        private System.Windows.Forms.ToolStripMenuItem 搜尋紀錄ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
+        private System.Windows.Forms.ToolStripMenuItem tsmlAPI;
     }
 }
 
