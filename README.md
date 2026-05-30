@@ -34,7 +34,7 @@
 ### (https://github.com/tim9910/tim9910.github.io/blob/main/images/weather/number-7.png) **預報資料顯示區**
 - 透過「36小時及1週預報API」取得資料，並使用頁籤與DataGridView呈現不同時段的天氣預報內容。
 
-### (https://github.com/tim9910/tim9910.github.io/blob/main/images/weather/number-8.png) **快速查詢區**
+(https://github.com/tim9910/tim9910.github.io/blob/main/images/weather/number-8.png) **快速查詢區**
 - 設有「搜尋紀錄」、「我的最愛」與「熱門查詢」三個區塊。搜尋紀錄會依搜尋時間顯示最近曾查詢過的縣市；我的最愛可自訂加入常用縣市；熱門查詢則顯示最常被查詢的縣市，方便快速點選查詢。
 
 ### (https://github.com/tim9910/tim9910.github.io/blob/main/images/weather/number-9.png) **快取機制**
