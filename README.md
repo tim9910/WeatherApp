@@ -13,31 +13,31 @@
 
   ![UI版面配置](https://github.com/tim9910/tim9910.github.io/blob/main/images/weather/ui.png)
 
-### (https://github.com/tim9910/tim9910.github.io/blob/main/images/weather/number-1.png) **功能選單區**
+### 1️⃣ **功能選單區**
 - 系統提供「我的最愛」管理、「搜尋紀錄」檢視與「API紀錄」檢視功能。其中，「API紀錄」採用資料庫方式儲存，每次系統呼叫天氣API時，會記錄查詢縣市、API類型、呼叫時間與是否成功取得資料等資訊，後續可追蹤API使用情況與錯誤原因；而「我的最愛」與「搜尋紀錄」則以檔案方式儲存，方便管理常用縣市及查看歷史查詢紀錄。
 
-### (https://github.com/tim9910/tim9910.github.io/blob/main/images/weather/number-2.png) **選擇縣市區**
+### 2️⃣ **選擇縣市區**
 - 透過「選擇縣市」下拉選單即時取得中央氣象署Open Data API的資料。
 
-### (https://github.com/tim9910/tim9910.github.io/blob/main/images/weather/number-3.png) **今日天氣提醒**
+### 3️⃣ **今日天氣提醒**
 - 透過「天氣小幫手API」取得縣市天氣提醒，並以跑馬燈方式顯示今日天氣重點。
 
-### (https://github.com/tim9910/tim9910.github.io/blob/main/images/weather/number-4.png) **天氣提醒文字區**
+### 4️⃣ **天氣提醒文字區**
 - 透過「天氣小幫手API」取得天氣提醒內容，並以文字搭配圖示呈現。
 
-### (https://github.com/tim9910/tim9910.github.io/blob/main/images/weather/number-5.png) **日出日沒區**
+### 5️⃣ **日出日沒區**
 - 透過「日出日沒API」取得日出與日沒時間，並以圖示搭配文字呈現。
 
-### (https://github.com/tim9910/tim9910.github.io/blob/main/images/weather/number-6.png) **圖片顯示區**
+### 6️⃣ **圖片顯示區**
 - 透過「溫度分布狀態 API」取得溫度分布圖，並以圖片方式呈現。
 
-### (https://github.com/tim9910/tim9910.github.io/blob/main/images/weather/number-7.png) **預報資料顯示區**
+### 7️⃣ **預報資料顯示區**
 - 透過「36小時及1週預報API」取得資料，並使用頁籤與DataGridView呈現不同時段的天氣預報內容。
 
-![8.](https://github.com/tim9910/tim9910.github.io/blob/main/images/weather/number-8.png) **快速查詢區**
+### 8️⃣ **快速查詢區**
 - 設有「搜尋紀錄」、「我的最愛」與「熱門查詢」三個區塊。搜尋紀錄會依搜尋時間顯示最近曾查詢過的縣市；我的最愛可自訂加入常用縣市；熱門查詢則顯示最常被查詢的縣市，方便快速點選查詢。
 
-![9.](### (https://github.com/tim9910/tim9910.github.io/blob/main/images/weather/number-9.png) **快取機制**
+### 9️⃣ **快取機制**
 - 當網路不通或API無法取得資料時，仍可顯示最近成功查詢的資料，避免畫面無法顯示。
 
 
