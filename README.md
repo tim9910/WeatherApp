@@ -1,10 +1,10 @@
 # 台灣天氣查詢系統
 
-## :pushpin: 系統簡述
+## :pushpin: 系統簡介
 本專案為「**台灣天氣查詢系統**」，主要透過中央氣象署Open Data API取得即時與預報天氣資訊，並以Windows視窗程式介面呈現。
-- 使用者可選擇欲查詢的縣市，系統自動以API取得相關天氣資料，透過解析回傳資料，以文字、表格、圖片與清單等不同控制項顯示。
-- 提供搜尋紀錄、我的最愛、熱門查詢縣市與快取功能，都是用檔案來存資料與讀資料的方式來實作。當網路連線異常或API無法正常取得資料時，會讀取最近一次快取檔案，避免畫面完全無法顯示資料。
-- 提供「API紀錄」功能，以資料庫方式儲存每次API的呼叫資訊，並提供依不同條件查詢，可追蹤使用情況與查詢錯誤原因。
+- 使用者可選擇欲查詢的縣市，自動以API取得相關天氣資料，透過解析回傳資料，以文字、表格、圖片與清單等不同控制項顯示。
+- 提供『搜尋紀錄』、『我的最愛』、『熱門查詢』與『快取』功能，並以**檔案**方式實作資料的儲存與讀取。當網路連線異常或API無法正常取得資料時，會讀取最近一次快取檔案，避免畫面完全無法顯示資料。
+- 提供『API紀錄』功能，以**資料庫**方式儲存每次API的呼叫資訊，並提供不同條件查詢API使用情況與查詢錯誤原因。
 
 ## :pushpin: 開發環境
 
@@ -17,9 +17,9 @@
   ![UI版面配置](https://github.com/tim9910/tim9910.github.io/blob/main/images/weather/ui.png)
 
 ### 1️⃣ **功能選單區**
-- 提供「我的最愛」管理、「搜尋紀錄」檢視與「API紀錄」檢視功能。
-- 「API紀錄」採資料庫儲存API呼叫資訊(查詢縣市、API類型、呼叫時間與執行結果等)，可追蹤API使用情況與錯誤原因
-- 「我的最愛」與「搜尋紀錄」以檔案方式儲存，提供管理常用縣市及查看歷史查詢紀錄。
+- 提供「我的最愛」管理、「搜尋紀錄」與「API紀錄」檢視功能
+- 「我的最愛」與「搜尋紀錄」以**檔案**方式處理，提供管理常用縣市及查看歷史查詢紀錄
+- 「API紀錄」以**資料庫**儲存API呼叫資訊(如查詢縣市、API類型等)，可查詢API使用情況與錯誤原因
 
 ### 2️⃣ **選擇縣市區**
 - 透過「選擇縣市」下拉選單即時取得中央氣象署Open Data API的資料。
@@ -53,34 +53,25 @@
   ![貼心輔助](https://github.com/tim9910/tim9910.github.io/blob/main/images/weather/info2.gif)
 
 ## :pushpin: 系統操作流程
+- 1.啟動台灣天氣查詢系統
+- 2.從「選擇縣市」下拉式選單選擇欲查詢的縣市，系統透過中央氣象署Open Data API 取得資料。
+- 3.畫面更新今日提醒、天氣小幫手、日出日沒、預報表格與溫度分布圖。
+![STEP2-3](https://github.com/tim9910/tim9910.github.io/blob/main/images/weather/step2.gif)
 
-### 1.啟動台灣天氣查詢系統
-### 2.從「選擇縣市」下拉式選單選擇欲查詢的縣市，系統透過中央氣象署Open Data API 取得資料。
-### 3.畫面更新今日提醒、天氣小幫手、日出日沒、預報表格與溫度分布圖。
-  ![STEP2-3](https://github.com/tim9910/tim9910.github.io/blob/main/images/weather/step2.gif)
+- 4.使用者可切換「36小時預報」或「1週預報」查看不同資料。
+![STEP4](https://github.com/tim9910/tim9910.github.io/blob/main/images/weather/step4.gif)
 
-### 4.使用者可切換「36小時預報」或「1週預報」查看不同資料。
-  ![STEP4](https://github.com/tim9910/tim9910.github.io/blob/main/images/weather/step4.gif)
+- 5.若想快速查詢常用縣市，可點選搜尋紀錄、我的最愛或熱門查詢中的縣市。
+![STEP5](https://github.com/tim9910/tim9910.github.io/blob/main/images/weather/step5.gif)
 
-### 5.若想快速查詢常用縣市，可點選搜尋紀錄、我的最愛或熱門查詢中的縣市。
-  ![STEP5](https://github.com/tim9910/tim9910.github.io/blob/main/images/weather/step5.gif)
-
-### 6.若網路異常，會載入最近一次快取資料。
-  ![STEP6](https://github.com/tim9910/tim9910.github.io/blob/main/images/weather/step6.gif)
+- 6.若網路異常，會載入最近一次快取資料。
+![STEP6](https://github.com/tim9910/tim9910.github.io/blob/main/images/weather/step6.gif)
   
-### 7.透過功能選單的『設定 » 我的最愛』功能，或使用快捷鍵(Alt+S+O)開啟，可管理常用縣市清單。設定後可在主畫面下方直接點選縣市快速查詢。
-  ![STEP7](https://github.com/tim9910/tim9910.github.io/blob/main/images/weather/step7.gif)
+- 7.透過功能選單的『設定 » 我的最愛』功能，或使用快捷鍵(Alt+S+O)開啟，可管理常用縣市清單。設定後可在主畫面下方直接點選縣市快速查詢。
+![STEP7](https://github.com/tim9910/tim9910.github.io/blob/main/images/weather/step7.gif)
 
-### 8.透過功能選單的『檢視 » 搜尋紀錄』功能，或使用快捷鍵(Alt+V+L)開啟，可查詢縣市查詢紀錄。
-  ![STEP8](https://github.com/tim9910/tim9910.github.io/blob/main/images/weather/step8.gif)
+- 8.透過功能選單的『檢視 » 搜尋紀錄』功能，或使用快捷鍵(Alt+V+L)開啟，可查詢縣市查詢紀錄。
+![STEP8](https://github.com/tim9910/tim9910.github.io/blob/main/images/weather/step8.gif)
 
-### 9.透過功能選單的『檢視 » API紀錄』功能，或使用快捷鍵(Alt+S+I)開啟，可依不同條件查詢API查詢記錄。
-  ![STEP9](https://github.com/tim9910/tim9910.github.io/blob/main/images/weather/step9.gif)
-
-
-## :pushpin: 系統操作畫面
-
-  ![系統操作畫面](https://github.com/tim9910/tim9910.github.io/blob/main/images/weather/runapp.gif)
-
-
-  
+- 9.透過功能選單的『檢視 » API紀錄』功能，或使用快捷鍵(Alt+S+I)開啟，可依不同條件查詢API查詢記錄。
+![STEP9](https://github.com/tim9910/tim9910.github.io/blob/main/images/weather/step9.gif)
