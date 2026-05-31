@@ -54,18 +54,18 @@
             // 
             // city
             // 
-            this.city.Text = "城市";
+            this.city.Text = "縣市";
             this.city.Width = 100;
             // 
             // clickcnt
             // 
-            this.clickcnt.Text = "點擊次數";
+            this.clickcnt.Text = "查詢次數";
             this.clickcnt.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.clickcnt.Width = 120;
             // 
             // clicktime
             // 
-            this.clicktime.Text = "點擊時間";
+            this.clicktime.Text = "最後查詢時間";
             this.clicktime.Width = 150;
             // 
             // frmView
@@ -77,7 +77,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmView";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "檢視歷史";
+            this.Text = "搜尋紀錄檢視";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmView_FormClosing);
             this.Load += new System.EventHandler(this.frmView_Load);
             this.ResumeLayout(false);
