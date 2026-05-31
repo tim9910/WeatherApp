@@ -224,13 +224,19 @@ namespace WeatherApp
             dgvApiResult.ColumnHeadersDefaultCellStyle.ForeColor = Color.Black;
 
 
-            dgvApiResult.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;
+            //dgvApiResult.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;
             dgvApiResult.AllowUserToAddRows = false;
             dgvApiResult.ReadOnly = true;
             dgvApiResult.RowHeadersVisible = false;
             dgvApiResult.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvApiResult.MultiSelect = false;
             dgvApiResult.RowTemplate.Height = 15;
+
+            dgvApiResult.Dock = DockStyle.Fill;
+            dgvApiResult.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvApiResult.BackgroundColor = Color.White;
+            dgvApiResult.BorderStyle = BorderStyle.None;
+
 
             dgvApiResult.Columns.Add("logid", "序號");
             dgvApiResult.Columns.Add("apiname", "API名稱");
