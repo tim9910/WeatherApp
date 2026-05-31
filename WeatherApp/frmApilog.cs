@@ -216,6 +216,14 @@ namespace WeatherApp
             dgvApiResult.Rows.Clear();
             dgvApiResult.Columns.Clear();
 
+            dgvApiResult.RowsDefaultCellStyle.BackColor = Color.White;
+            dgvApiResult.AlternatingRowsDefaultCellStyle.BackColor = Color.LightYellow;
+
+            dgvApiResult.EnableHeadersVisualStyles = false;
+            dgvApiResult.ColumnHeadersDefaultCellStyle.BackColor = Color.LightBlue;
+            dgvApiResult.ColumnHeadersDefaultCellStyle.ForeColor = Color.Black;
+
+
             dgvApiResult.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;
             dgvApiResult.AllowUserToAddRows = false;
             dgvApiResult.ReadOnly = true;
@@ -241,6 +249,13 @@ namespace WeatherApp
             dgvApiResult.Columns["statuscode"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             dgvApiResult.Columns["success"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             dgvApiResult.Columns["result"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            // if dt.Rows is empty, the foreach loop will be skipped and the DataGridView will just show the column headers without any rows.
+            if (dt.Rows.Count == 0)
+            {
+                dgvApiResult.Rows.Add("", "沒有查詢到資料", "", "", "", "", "", "");
+
+                return;
+            }
 
             int idx = 0;
             foreach (DataRow row in dt.Rows)
@@ -250,5 +265,19 @@ namespace WeatherApp
             }
         }
 
+        private void dgvApiResult_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (dgvApiResult.Columns[e.ColumnIndex].Name != "success")
+                return;
+
+            if (e.Value != null && e.Value.ToString() == "F")
+            {
+                dgvApiResult.Rows[e.RowIndex].DefaultCellStyle.ForeColor = Color.Red;
+            }
+            else
+            {
+                dgvApiResult.Rows[e.RowIndex].DefaultCellStyle.ForeColor = Color.Black;
+            }
+        }
     }
 }

@@ -66,7 +66,7 @@
             // clicktime
             // 
             this.clicktime.Text = "最後查詢時間";
-            this.clicktime.Width = 150;
+            this.clicktime.Width = 170;
             // 
             // frmView
             // 

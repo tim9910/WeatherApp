@@ -58,6 +58,7 @@
             this.dgvApiResult.RowTemplate.Height = 35;
             this.dgvApiResult.Size = new System.Drawing.Size(1276, 583);
             this.dgvApiResult.TabIndex = 4;
+            this.dgvApiResult.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvApiResult_CellFormatting);
             // 
             // plTop
             // 
