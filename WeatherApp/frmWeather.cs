@@ -34,7 +34,7 @@ namespace WeatherApp
         ///關於視窗
         ///</summary>
         frmAbout about = new frmAbout();
-        frmView view = new frmView();
+        //frmView view = new frmView();
         frmApilog apilog = new frmApilog();
         public static readonly Dictionary<string, string> CityCodeMap = new Dictionary<string, string>
             {
@@ -1062,6 +1062,7 @@ namespace WeatherApp
 
         private void 搜尋紀錄ToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            frmView view = new frmView();
             view.ShowDialog(this);
         }
 

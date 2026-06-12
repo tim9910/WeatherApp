@@ -13,7 +13,7 @@ namespace WeatherApp
 {
     public partial class frmView : Form
     {
-        ClickHistory clickHistory;
+        //ClickHistory clickHistory;
         List<CityClick> cityClicks;
 
         bool sortAscending = true;
@@ -28,8 +28,10 @@ namespace WeatherApp
 
         private void Show()
         {
+            ClickHistory clickHistory;
             clickHistory = new ClickHistory();
             cityClicks = clickHistory.GetAll();
+            
             UpdateListView();
             //disabled 視窗的最大化和最小化按鈕，讓使用者只能關閉視窗
             this.MaximizeBox = false;
@@ -42,7 +44,7 @@ namespace WeatherApp
         private void UpdateListView()
         {
             lvwResult.BeginUpdate(); //暫停重繪
-
+            Debug.WriteLine($"CityClicks count: {cityClicks.Count}");
             // 清除ListView的所有項目
             lvwResult.Items.Clear();
             // 將WordCollection物件中的資料載入到ListView中
